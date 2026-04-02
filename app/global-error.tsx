@@ -53,12 +53,7 @@ export default function GlobalError({
                 <Button onClick={unstable_retry} size="md" variant="filled">
                   Try again
                 </Button>
-                <Button
-                  component="a"
-                  href="/"
-                  size="md"
-                  variant="default"
-                >
+                <Button component="a" href="/" size="md" variant="default">
                   Back to home
                 </Button>
               </Group>

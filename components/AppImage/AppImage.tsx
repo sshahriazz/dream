@@ -10,7 +10,8 @@ import {
 type OmittedMantineProps = "src" | "onError" | "component";
 
 export interface AppImageProps
-  extends Omit<MantineImageProps, OmittedMantineProps>,
+  extends
+    Omit<MantineImageProps, OmittedMantineProps>,
     Pick<
       NextImageProps,
       | "src"

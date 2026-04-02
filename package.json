@@ -9,7 +9,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.8.2",
@@ -24,6 +26,7 @@
     "@mantine/notifications": "^9.0.0",
     "@mantine/nprogress": "^9.0.0",
     "@mantine/spotlight": "^9.0.0",
+    "@phosphor-icons/react": "^2.1.10",
     "dayjs": "^1.11.20",
     "embla-carousel": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
@@ -43,11 +46,13 @@
     "eslint": "^9",
     "eslint-config-mantine": "^4.0.3",
     "eslint-config-next": "16.2.1",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
     "postcss": "^8.5.8",
     "postcss-preset-mantine": "^1.18.0",
     "postcss-simple-vars": "^7.0.1",
+    "prettier": "^3.8.1",
     "typescript": "^5",
     "typescript-eslint": "^8.58.0"
   }

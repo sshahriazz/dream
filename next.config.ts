@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
       "@mantine/carousel",
       "@mantine/charts",
       "@mantine/dropzone",
+      "@phosphor-icons/react",
     ],
   },
 };

@@ -20,10 +20,7 @@ import { Notifications } from "@mantine/notifications";
 import { theme } from "@/theme";
 import { AppShellLayout } from "@/components/AppShell";
 import { ColorSchemeSync } from "@/components/ColorSchemeSync";
-import {
-  COLOR_SCHEME_COOKIE,
-  resolveColorScheme,
-} from "@/lib/color-scheme";
+import { COLOR_SCHEME_COOKIE, resolveColorScheme } from "@/lib/color-scheme";
 
 import type { Metadata } from "next";
 import { appConfig } from "@/app.config";
@@ -93,7 +90,13 @@ export default async function RootLayout({
       <body>
         <MantineProvider
           theme={theme}
-          defaultColorScheme={colorSchemeValue === "dark" || colorSchemeValue === "light" || colorSchemeValue === "auto" ? colorSchemeValue : "auto"}
+          defaultColorScheme={
+            colorSchemeValue === "dark" ||
+            colorSchemeValue === "light" ||
+            colorSchemeValue === "auto"
+              ? colorSchemeValue
+              : "auto"
+          }
         >
           <ColorSchemeSync />
           <LocaleProvider locale={lang} dict={dict}>

@@ -5,8 +5,7 @@ import type { LinkProps as NextLinkProps } from "next/link";
 import { Anchor, type AnchorProps } from "@mantine/core";
 
 export interface AppLinkProps
-  extends AnchorProps,
-    Pick<NextLinkProps, "replace" | "scroll" | "prefetch"> {
+  extends AnchorProps, Pick<NextLinkProps, "replace" | "scroll" | "prefetch"> {
   /** URL path or full URL to navigate to */
   href: string;
   ref?: React.Ref<HTMLAnchorElement>;
