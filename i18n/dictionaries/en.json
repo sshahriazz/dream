@@ -1,0 +1,23 @@
+{
+  "common": {
+    "appName": "Dream",
+    "backToHome": "Back to home",
+    "tryAgain": "Try again",
+    "loading": "Loading..."
+  },
+  "home": {
+    "title": "Welcome to Dream",
+    "description": "Your app shell is ready. Start building!"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist. It might have been moved, deleted, or you may have mistyped the URL."
+  },
+  "error": {
+    "code": "500",
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred. Our team has been notified. Please try again or return to the home page.",
+    "errorId": "Error ID"
+  }
+}

@@ -1,7 +1,21 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  experimental: {
+    optimizePackageImports: [
+      "@mantine/core",
+      "@mantine/hooks",
+      "@mantine/form",
+      "@mantine/dates",
+      "@mantine/notifications",
+      "@mantine/modals",
+      "@mantine/nprogress",
+      "@mantine/spotlight",
+      "@mantine/carousel",
+      "@mantine/charts",
+      "@mantine/dropzone",
+    ],
+  },
 };
 
 export default nextConfig;

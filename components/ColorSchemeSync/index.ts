@@ -1,0 +1,1 @@
+export { ColorSchemeSync } from "./ColorSchemeSync";
