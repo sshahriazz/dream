@@ -1,4 +1,3 @@
-import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 import prettier from "eslint-config-prettier";
@@ -67,10 +66,10 @@ const phosphorPlugin = {
   },
 };
 
-const eslintConfig = defineConfig([
+const eslintConfig = [
   ...nextVitals,
   ...nextTs,
-  globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts"]),
+  { ignores: [".next/**", "out/**", "build/**", "next-env.d.ts"] },
   prettier,
   {
     plugins: {
@@ -93,6 +92,6 @@ const eslintConfig = defineConfig([
       ],
     },
   },
-]);
+];
 
 export default eslintConfig;

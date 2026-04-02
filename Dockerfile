@@ -12,7 +12,7 @@
 # ─────────────────────────────────────────────────────────────
 
 # ── Stage 1: Base ────────────────────────────────────────────
-FROM node:25-alpine AS base
+FROM node:22-alpine AS base
 
 # Enable pnpm via corepack
 RUN corepack enable && corepack prepare pnpm@latest --activate
@@ -49,7 +49,7 @@ ENV NEXT_PUBLIC_SITE_URL=http://localhost:3000
 RUN pnpm build
 
 # ── Stage 4: Runner (production) ─────────────────────────────
-FROM node:25-alpine AS runner
+FROM node:22-alpine AS runner
 
 WORKDIR /app
 

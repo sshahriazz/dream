@@ -1,13 +1,13 @@
 "use client";
 
-import { AppShell, ScrollArea, Tooltip } from "@mantine/core";
+import { AppShell, ScrollArea } from "@mantine/core";
 
 interface NavbarProps {
   desktopExpanded: boolean;
   onClose: () => void;
 }
 
-export function Navbar({ desktopExpanded, onClose: _onClose }: NavbarProps) {
+export function Navbar({ desktopExpanded }: NavbarProps) {
   return (
     <>
       <AppShell.Section p={desktopExpanded ? "md" : "xs"}>
