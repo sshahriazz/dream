@@ -1,1 +1,43 @@
-/* Global styles */
+/* ─────────────────────────────────────────────────────────── */
+/* Global styles                                               */
+/* Only things Mantine does NOT provide.                       */
+/* ─────────────────────────────────────────────────────────── */
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+[data-mantine-color-scheme="light"] ::-webkit-scrollbar-thumb {
+  background: var(--mantine-color-gray-3);
+  border-radius: var(--mantine-radius-sm);
+}
+
+[data-mantine-color-scheme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--mantine-color-gray-4);
+}
+
+[data-mantine-color-scheme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--mantine-color-dark-4);
+  border-radius: var(--mantine-radius-sm);
+}
+
+[data-mantine-color-scheme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--mantine-color-dark-3);
+}
+
+/* ── Text selection ──────────────────────────────────────── */
+[data-mantine-color-scheme="light"] ::selection {
+  background: #d8ebff;
+  color: #003f8c;
+}
+
+[data-mantine-color-scheme="dark"] ::selection {
+  background: #004faa;
+  color: #d8ebff;
+}

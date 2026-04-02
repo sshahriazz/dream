@@ -17,8 +17,9 @@ import { MantineProvider, mantineHtmlProps } from "@mantine/core";
 import { NavigationProgress } from "@mantine/nprogress";
 import { ModalsProvider } from "@mantine/modals";
 import { Notifications } from "@mantine/notifications";
-import { theme } from "@/theme";
+import { theme, cssVariablesResolver } from "@/theme";
 import { AppShellLayout } from "@/components/AppShell";
+import { IconProvider } from "@/components/IconProvider";
 import { ColorSchemeSync } from "@/components/ColorSchemeSync";
 import { COLOR_SCHEME_COOKIE, resolveColorScheme } from "@/lib/color-scheme";
 
@@ -90,6 +91,7 @@ export default async function RootLayout({
       <body>
         <MantineProvider
           theme={theme}
+          cssVariablesResolver={cssVariablesResolver}
           defaultColorScheme={
             colorSchemeValue === "dark" ||
             colorSchemeValue === "light" ||
@@ -98,16 +100,18 @@ export default async function RootLayout({
               : "auto"
           }
         >
-          <ColorSchemeSync />
-          <LocaleProvider locale={lang} dict={dict}>
-            <DatesProvider>
-              <Notifications position="top-right" />
-              <ModalsProvider>
-                <NavigationProgress />
-                <AppShellLayout>{children}</AppShellLayout>
-              </ModalsProvider>
-            </DatesProvider>
-          </LocaleProvider>
+          <IconProvider>
+            <ColorSchemeSync />
+            <LocaleProvider locale={lang} dict={dict}>
+              <DatesProvider>
+                <Notifications position="top-right" />
+                <ModalsProvider>
+                  <NavigationProgress />
+                  <AppShellLayout>{children}</AppShellLayout>
+                </ModalsProvider>
+              </DatesProvider>
+            </LocaleProvider>
+          </IconProvider>
         </MantineProvider>
       </body>
     </html>

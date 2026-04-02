@@ -3,19 +3,22 @@ import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 import prettier from "eslint-config-prettier";
 
-// Custom rule: enforce `weight` prop on Phosphor icon components
+// Custom rule: prevent Phosphor icons from using weight="regular"
+// since the global IconProvider sets weight="duotone" as default.
+// Using "regular" would override the default inconsistently —
+// if you need regular weight, it's likely an oversight.
 const phosphorPlugin = {
   rules: {
-    "require-weight-prop": {
+    "no-regular-weight": {
       meta: {
         type: "suggestion",
         docs: {
           description:
-            "Require explicit `weight` prop on Phosphor icon components for consistent styling",
+            'Prevent Phosphor icons from using weight="regular" since the app default is "duotone" via IconContext',
         },
         messages: {
-          missingWeight:
-            'Phosphor icon <{{name}}> is missing the `weight` prop. Add weight="duotone" (or another explicit weight).',
+          noRegularWeight:
+            'Phosphor icon <{{name}}> uses weight="regular". The global default is "duotone" via IconProvider — remove the weight prop to use the default, or use a different weight.',
         },
         schema: [],
       },
@@ -40,15 +43,20 @@ const phosphorPlugin = {
             if (!name || !phosphorImports.has(name)) return;
             if (name === "IconContext" || name === "IconBase") return;
 
-            const hasWeight = node.attributes.some(
+            const weightAttr = node.attributes.find(
               (attr) =>
                 attr.type === "JSXAttribute" && attr.name.name === "weight"
             );
 
-            if (!hasWeight) {
+            if (
+              weightAttr &&
+              weightAttr.value &&
+              weightAttr.value.type === "Literal" &&
+              weightAttr.value.value === "regular"
+            ) {
               context.report({
                 node,
-                messageId: "missingWeight",
+                messageId: "noRegularWeight",
                 data: { name },
               });
             }
@@ -69,7 +77,7 @@ const eslintConfig = defineConfig([
       phosphor: phosphorPlugin,
     },
     rules: {
-      "phosphor/require-weight-prop": "warn",
+      "phosphor/no-regular-weight": "warn",
 
       "no-restricted-imports": [
         "error",

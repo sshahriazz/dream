@@ -2,32 +2,31 @@
 
 import {
   ActionIcon,
-  Box,
   useMantineColorScheme,
   useComputedColorScheme,
+  Tooltip,
 } from "@mantine/core";
+import { Sun, Moon } from "@phosphor-icons/react";
 
 export function ColorSchemeToggle() {
   const { setColorScheme } = useMantineColorScheme();
   const computedColorScheme = useComputedColorScheme("light");
+  const isDark = computedColorScheme === "dark";
 
   const toggleColorScheme = () => {
-    setColorScheme(computedColorScheme === "dark" ? "light" : "dark");
+    setColorScheme(isDark ? "light" : "dark");
   };
 
   return (
-    <ActionIcon
-      onClick={toggleColorScheme}
-      variant="default"
-      size="lg"
-      aria-label="Toggle color scheme"
-    >
-      <Box component="span" fz="sm" lightHidden>
-        &#x2600;&#xFE0F;
-      </Box>
-      <Box component="span" fz="sm" darkHidden>
-        &#x1F319;
-      </Box>
-    </ActionIcon>
+    <Tooltip label={isDark ? "Light mode" : "Dark mode"}>
+      <ActionIcon
+        onClick={toggleColorScheme}
+        variant="default"
+        size="lg"
+        aria-label="Toggle color scheme"
+      >
+        {isDark ? <Sun /> : <Moon />}
+      </ActionIcon>
+    </Tooltip>
   );
 }
