@@ -18,7 +18,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@formatjs/intl-localematcher": "^0.8.2",
+    "@formatjs/intl-localematcher": "^0.8.4",
     "@mantine/carousel": "^9.0.0",
     "@mantine/charts": "^9.0.0",
     "@mantine/core": "^9.0.0",
