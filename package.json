@@ -32,7 +32,7 @@
     "@mantine/spotlight": "^9.0.0",
     "@phosphor-icons/react": "^2.1.10",
     "@t3-oss/env-nextjs": "^0.13.11",
-    "dayjs": "^1.11.20",
+    "dayjs": "^1.11.21",
     "embla-carousel": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "negotiator": "^1.0.0",
